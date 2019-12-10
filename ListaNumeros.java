@@ -3,7 +3,7 @@
  * La clase encapsula en un array
  * una lista de numeros
  * 
- * @author - 
+ * @author Christian Jiménez Cuesta 
  * 
  */
 import java.util.Arrays;
@@ -26,7 +26,8 @@ public class ListaNumeros
         if (n > TAM_LISTA) {
             throw new IllegalArgumentException("Valor no permitido para tamaño lista");
         }
-        // completar
+        numeros = new int[n];
+        pos = 0;
     }
 
     /**
@@ -38,9 +39,12 @@ public class ListaNumeros
      */
     public boolean addElemento(int numero)
     {
-        
-        return true;
-
+        boolean resultado = !estaCompleta() && !estaElemento(numero);
+        if(resultado){
+            numeros[pos] = numero;
+            pos++;
+        }
+        return resultado;
     }
 
     /**
@@ -48,8 +52,7 @@ public class ListaNumeros
      */
     public boolean estaCompleta()
     {
-        return true;
-
+        return pos == numeros.length;
     }
 
     /**
@@ -57,8 +60,7 @@ public class ListaNumeros
      */
     public boolean estaVacia() 
     {
-        return true;
-
+        return pos == 0;
     }
 
     /**
@@ -66,8 +68,7 @@ public class ListaNumeros
      */
     public int getTotalNumeros()
     {
-        return 0;
-
+        return pos;
     }
 
     /**
@@ -75,7 +76,10 @@ public class ListaNumeros
      */
     public void vaciarLista() 
     {
-        
+        for(int i = 0; i < pos; i++){
+            numeros[i] = 0;
+        }
+        pos = 0; 
     }
 
     /**
@@ -84,8 +88,13 @@ public class ListaNumeros
      */
     public boolean estaElemento(int numero) 
     {
-        
-        return false;
+        boolean resultado = false;
+        int i = 0;
+        while(i < pos && !resultado){
+            resultado = numeros[i] == numero;
+            i++;
+        }
+        return resultado;
     }
 
     /**
