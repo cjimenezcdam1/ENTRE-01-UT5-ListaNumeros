@@ -139,7 +139,26 @@ public class ListaNumeros
      * (ver detalles en el enunciado)
      */
     public int[] expandir() {
-        return null;
+        //Comprobamos si es impar el nº de numeros o no
+        if(pos % 2 != 0){
+            throw new RuntimeException("Nº impar de elementos en el array, añada uno más");
+        }
+        //Contamos la cantidad de elementos del array expandido
+        int totalElementos = 0;
+        for(int i = 0; i < pos; i += 2){
+            totalElementos += numeros[i];
+        }
+        //Formación del array expandido
+        int[] arrayExpandido = new int[totalElementos];
+        int posArrayExp = 0;
+        for(int i = 0; i < pos; i += 2){
+            int repeticiones = numeros[i];
+            for(int j = 1; j <= repeticiones; j++){
+                arrayExpandido[posArrayExp] = numeros[i + 1];
+                posArrayExp++;
+            }
+        }
+        return arrayExpandido;
     }
 
     /**
