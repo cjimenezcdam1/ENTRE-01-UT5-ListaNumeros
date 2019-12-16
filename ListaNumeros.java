@@ -106,8 +106,16 @@ public class ListaNumeros
      */
     public String toString() 
     {
-        
-        return null;
+        String representacion = "";
+        if(pos == 0){
+            representacion += "| |";
+        }else{
+            for(int i = 0; i < pos; i++){
+                representacion += " | " + numeros[i];
+            }
+            representacion += " |";
+        }
+        return representacion;
     }
 
     /**
@@ -131,8 +139,6 @@ public class ListaNumeros
      * (ver detalles en el enunciado)
      */
     public int[] expandir() {
-         
-
         return null;
     }
 
@@ -208,8 +214,8 @@ public class ListaNumeros
         System.out.println("Original: " + numeros.toString());
         int[] expandido = numeros.expandir();
         System.out.println("Expandido: " + Arrays.toString(expandido));
-        // seguir completando
-        
+        //System.out.println("El array está compuesto por " + numeros.getTotalNumeros() + "numeros");
+        // NO SE ENTIENDE COMO COMPLETAR EL MÉTODO MAIN. PREGUNTAR
         
         
     }
