@@ -180,7 +180,6 @@ public class ListaNumeros
      */
     public void reorganizarParesImpares() {
          
-
     }
 
      
@@ -210,8 +209,15 @@ public class ListaNumeros
      */
     public int[][] toArray2D() 
     {
-        
-        return null;
+        int[][] array2D = new int[4][4];
+        int posCopia = 0;
+        for(int i = 0; i < array2D.length; i++){
+            for(int j = 0; j < array2D[i].length; j++){
+                array2D[i][j] = numeros[posCopia];
+                posCopia++;
+            }
+        }
+        return array2D;
     }
 
     /**
