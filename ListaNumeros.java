@@ -140,7 +140,7 @@ public class ListaNumeros
      */
     public int[] expandir() {
         //Comprobamos si es impar el nº de numeros o no
-        if(pos % 2 != 0){
+        if(esImpar(pos)){
             throw new RuntimeException("Nº impar de elementos en el array, añada uno más");
         }
         //Contamos la cantidad de elementos del array expandido
