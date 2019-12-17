@@ -215,8 +215,8 @@ public class ListaNumeros
     {
         int[][] array2D = new int[4][4];
         int posCopia = 0;
-        for(int i = 0; i < array2D.length; i++){
-            for(int j = 0; j < array2D[i].length; j++){
+        for(int i = 0; i < array2D.length && posCopia < pos; i++){
+            for(int j = 0; j < array2D[i].length && posCopia < pos; j++){
                 array2D[i][j] = numeros[posCopia];
                 posCopia++;
             }
@@ -239,6 +239,8 @@ public class ListaNumeros
         numeros.addElemento(5);
         numeros.addElemento(8);
         numeros.addElemento(11);
+        numeros.addElemento(12);
+        numeros.addElemento(6);
 
         System.out.println("Original: " + numeros.toString());
         int[] expandido = numeros.expandir();
@@ -246,6 +248,10 @@ public class ListaNumeros
         System.out.println("El array está compuesto por " + numeros.getTotalNumeros() + " numeros");
         numeros.reorganizarParesImpares();
         System.out.println("Reorganizado: " + numeros.toString());
-        
+        int[][] arrayEn2D = numeros.toArray2D();
+        System.out.println("VISTA DEL ARRAY EN 2D");
+        for(int i = 0; i < arrayEn2D.length; i++){
+            System.out.println(Arrays.toString(arrayEn2D[i]));
+        }
     }
 }
