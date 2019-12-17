@@ -258,6 +258,8 @@ public class ListaNumeros
         System.out.println("El array está compuesto por " + numeros.getTotalNumeros() + " numeros");
         numeros.reorganizarParesImpares();
         System.out.println("Reorganizado: " + numeros.toString());
+        ListaNumeros lista = numeros.nuevaLista();
+        System.out.println("Ordenado: " + lista.toString());
         int[][] arrayEn2D = numeros.toArray2D();
         System.out.println("VISTA DEL ARRAY EN 2D");
         for(int i = 0; i < arrayEn2D.length; i++){
