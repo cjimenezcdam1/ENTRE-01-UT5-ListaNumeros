@@ -179,7 +179,19 @@ public class ListaNumeros
      *  después de reorganizarParesImpares() quedaría {4, 2, 8, 3, 7, 9, 5, 11, 13}
      */
     public void reorganizarParesImpares() {
-         
+        int valorAuxiliar = 0;
+        int posAuxiliar = 0;
+        int posNuevo = 0;
+        for(int i = 0; i < pos; i++){
+             if(numeros[i] % 2 == 0){
+                 valorAuxiliar = numeros[i];
+                 for(int j = i; j > posNuevo; j--){
+                     numeros[j] = numeros[j - 1];
+                 }
+                 numeros[posNuevo] = valorAuxiliar;
+                 posNuevo++;
+             }
+        }
     }
 
      
@@ -239,8 +251,6 @@ public class ListaNumeros
         numeros.addElemento(5);
         numeros.addElemento(8);
         numeros.addElemento(11);
-        numeros.addElemento(12);
-        numeros.addElemento(6);
 
         System.out.println("Original: " + numeros.toString());
         int[] expandido = numeros.expandir();
