@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 /**
  * La clase encapsula en un array
  * una lista de numeros
@@ -6,7 +6,7 @@
  * @author Christian Jiménez Cuesta 
  * 
  */
-import java.util.Arrays;
+
 
 public class ListaNumeros 
 {
@@ -191,9 +191,13 @@ public class ListaNumeros
      *  que incluya los elementos del array ordenado
      */
     public ListaNumeros nuevaLista() {
-         
-        return null;
-
+        int[] nuevoNumeros = Arrays.copyOf(numeros, pos);
+        Arrays.sort(nuevoNumeros);
+        ListaNumeros listaOrdenada = new ListaNumeros(pos);
+        for(int i = 0; i < pos; i++){
+            listaOrdenada.addElemento(nuevoNumeros[i]);
+        }
+        return listaOrdenada;
     }
 
     /**
@@ -239,9 +243,9 @@ public class ListaNumeros
         System.out.println("Original: " + numeros.toString());
         int[] expandido = numeros.expandir();
         System.out.println("Expandido: " + Arrays.toString(expandido));
-        //System.out.println("El array está compuesto por " + numeros.getTotalNumeros() + "numeros");
-        // NO SE ENTIENDE COMO COMPLETAR EL MÉTODO MAIN. PREGUNTAR
-        
+        System.out.println("El array está compuesto por " + numeros.getTotalNumeros() + " numeros");
+        numeros.reorganizarParesImpares();
+        System.out.println("Reorganizado: " + numeros.toString());
         
     }
 }
